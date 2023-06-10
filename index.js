@@ -17,7 +17,7 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 app.use(cors([{
-    origin : "http://localhost:3000"
+    origin : "https://todo-reactjs-six.vercel.app"
 }]))
 
 //Connect MongoDB
@@ -41,14 +41,14 @@ app.post('/insert-task', async (req, res) => {
     task.dateTime = new Date()
 
     task.save()
-        .then(() => res.redirect('http://localhost:3000/home'))
+        .then(() => res.redirect('https://todo-reactjs-six.vercel.app/home'))
         .catch(error => res.status(500).json({error}))
 })
 
 app.post('/update-task', async (req, res) => {
     const task = req.body
     Task.updateOne({_id : req.body._id}, task)
-        .then(() => res.redirect('http://localhost:3000/home'))
+        .then(() => res.redirect('https://todo-reactjs-six.vercel.app/home'))
         .catch(error => res.status(500).json({error}))
 })
 
@@ -56,7 +56,7 @@ app.post('/delete-task', async (req, res) => {
     const id = req.body._id
 
     await Task.deleteOne({_id : id})
-        .then(() => res.redirect('http://localhost:3000/home'))
+        .then(() => res.redirect('https://todo-reactjs-six.vercel.app/home'))
         .catch(error => res.status(500).json({error}))
 })
 
@@ -80,7 +80,7 @@ app.get('/api/users', async (req, res) => {
 app.post('/insert-user', async (req, res) => {
     const user = new User(req.body) 
     user.save()
-    .then(() => res.redirect('http://localhost:3000'))
+    .then(() => res.redirect('https://todo-reactjs-six.vercel.app'))
     .catch(error => res.status(500).json({error}))
 })
 
