@@ -83,7 +83,7 @@ app.get('/api/users', async (req, res) => {
 
 app.post('/update-user-by-username', async (req, res) => {
     const user = new User(req.body)
-    User.updateOne({userName : user.username,  passWord : user.password},  {$set : {accessControl : user.accessControl}})
+    User.updateOne({userName : user.userName,  passWord : user.passWord},  {$set : {accessControl : user.accessControl}})
         .then(() => res.redirect('https://todo-reactjs-six.vercel.app'))
         .catch(error => res.status(500).json({error}))
 })
