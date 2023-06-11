@@ -18,7 +18,11 @@ app.use(express.json())
 
 app.use(cors([{
     origin : "https://todo-reactjs-six.vercel.app"
-}]))
+},
+{
+    origin : "http://localhost:3000"
+}
+]))
 
 //Connect MongoDB
 db.connect()
