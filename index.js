@@ -83,6 +83,7 @@ app.get('/api/users', async (req, res) => {
 
 app.post('/insert-user', async (req, res) => {
     const user = new User(req.body) 
+    user.accessControl  = false
     user.save()
     .then(() => res.redirect('https://todo-reactjs-six.vercel.app'))
     .catch(error => res.status(500).json({error}))
