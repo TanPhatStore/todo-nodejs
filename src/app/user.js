@@ -5,8 +5,7 @@ const Schema = mongoose.Schema
 
 const User = new Schema ({
     userName : {type : String},
-    passWord : {type : String},
-    accessControl  : {type : Boolean}
+    passWord : {type : String}
 })
 
 module.exports = mongoose.model('users', User)

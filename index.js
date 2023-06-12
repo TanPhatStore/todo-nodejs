@@ -20,7 +20,7 @@ app.use(cors([{
     origin : "https://todo-reactjs-six.vercel.app"
 },
 {
-    origin : "http://localhost:3000"
+    origin : "https://todo-reactjs-six.vercel.app"
 }
 ]))
 
@@ -79,14 +79,6 @@ app.get('/api/users', async (req, res) => {
     } catch (error) {
         res.status(500).json({error})
     }   
-})
-
-app.post('/update-user-by-username', async (req, res) => {
-    const user = new User(req.body)
-    console.log(user)
-    User.updateOne({_id : user._id} ,{$set : {accessControl : user.accessControl}})
-        .then(() => res.redirect('https://todo-reactjs-six.vercel.app'))
-        .catch(error => res.status(500).json({error}))
 })
 
 app.post('/insert-user', async (req, res) => {
